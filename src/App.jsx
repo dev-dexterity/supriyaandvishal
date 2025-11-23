@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Heart, Calendar, MapPin, Gift, Music, Send } from 'lucide-react';
+import { Heart, Calendar, MapPin, Gift, Music } from 'lucide-react';
+import SayingPrayers from './components/SayingPrayers';
 
 // Lazy loading component for images
 const LazyImage = ({ src, alt, className, style }) => {
@@ -40,106 +41,6 @@ const LazyImage = ({ src, alt, className, style }) => {
       className={`${className} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       style={style}
     />
-  );
-};
-
-// Saying Prayers Component
-const SayingPrayers = () => {
-  const [prayers, setPrayers] = useState([]);
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    loadPrayers();
-  }, []);
-
-  const loadPrayers = () => {
-    const stored = localStorage.getItem('wedding-prayers');
-    if (stored) {
-      setPrayers(JSON.parse(stored));
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
-
-    setIsSubmitting(true);
-    const newPrayer = {
-      id: Date.now(),
-      name: name.trim(),
-      message: message.trim(),
-      timestamp: new Date().toISOString()
-    };
-
-    const updatedPrayers = [newPrayer, ...prayers];
-    setPrayers(updatedPrayers);
-    localStorage.setItem('wedding-prayers', JSON.stringify(updatedPrayers));
-
-    setName('');
-    setMessage('');
-    setTimeout(() => setIsSubmitting(false), 500);
-  };
-
-  return (
-    <section className="py-20 px-4 bg-gradient-to-br from-rose-50 to-pink-50">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-serif text-center text-gray-800 mb-4">Send Your Blessings</h2>
-        <p className="text-center text-gray-600 mb-12">Share your love and wishes for the happy couple</p>
-
-        <div className="bg-white rounded-3xl p-8 shadow-lg mb-12">
-          <div className="mb-6">
-            <label className="block text-gray-700 mb-2 font-medium">Your Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 mb-2 font-medium">Your Message</label>
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all resize-none"
-              placeholder="Write your blessings and wishes..."
-              rows="4"
-            />
-          </div>
-          <button
-            onClick={handleSubmit}
-            disabled={isSubmitting || !name.trim() || !message.trim()}
-            className="w-full bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-rose-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 flex items-center justify-center"
-          >
-            <Send className="w-5 h-5 mr-2" />
-            {isSubmitting ? 'Sending...' : 'Send Blessings'}
-          </button>
-        </div>
-
-        {prayers.length > 0 && (
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif text-gray-800 mb-6">Messages from Loved Ones</h3>
-            {prayers.map((prayer) => (
-              <div key={prayer.id} className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 flex items-center justify-center text-white font-semibold text-lg mr-4 flex-shrink-0">
-                    {prayer.name.charAt(0).toUpperCase()}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-800 mb-1">{prayer.name}</h4>
-                    <p className="text-gray-600 text-sm mb-2">{new Date(prayer.timestamp).toLocaleDateString()}</p>
-                    <p className="text-gray-700">{prayer.message}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
   );
 };
 
