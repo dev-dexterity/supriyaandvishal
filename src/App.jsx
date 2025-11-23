@@ -334,7 +334,7 @@ const WeddingInvitation = () => {
           <p className="text-white text-lg mb-2 drop-shadow-lg">Made with</p>
           <Heart className="w-12 h-12 mx-auto text-white drop-shadow-lg mb-4" />
           <p className="text-white text-lg mb-2 drop-shadow-lg">Thank you for being part of our special day</p>
-          <p className="text-white drop-shadow-lg">Dr. Supriya & Vishal</p>
+          <p className="text-white drop-shadow-lg">Dr. Supriya & Er.Vishal</p>
           <p className="text-white/90 text-sm mt-4 drop-shadow-lg">November 30, 2025</p>
         </div>
       </footer>
