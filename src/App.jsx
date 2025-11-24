@@ -135,7 +135,7 @@ const WeddingInvitation = () => {
             opacity: isLoaded ? 1 : 0
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-400/40 via-pink-400/30 to-rose-400/40 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 via-pink-400/20 to-rose-400/30 backdrop-blur-sm" />
 
         <div className="relative z-10 max-w-md w-full bg-white/40 backdrop-blur-md rounded-3xl shadow-2xl p-8 text-center transform hover:scale-105 transition-all duration-500 animate-fade-in">
           <div className="mb-6">
