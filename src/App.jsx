@@ -206,7 +206,7 @@ const WeddingInvitation = () => {
                     src="/bride-min.jpg"
                     alt="Dr. Supriya Yachawad"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center center', transform: 'scale(1.3)' }}
+                    style={{ objectPosition: 'center center', transform: 'scale(1.2)' }}
                   />
                 </div>
               </div>
@@ -225,7 +225,7 @@ const WeddingInvitation = () => {
                     src="/groom-min.jpg"
                     alt="Vishal Pastapure"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center center', transform: 'scale(1.5)' }}
+                    style={{ objectPosition: 'center 20%', transform: 'scale(1.0)' }}
                   />
                 </div>
               </div>
