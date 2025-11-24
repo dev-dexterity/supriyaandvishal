@@ -292,11 +292,11 @@ const WeddingInvitation = () => {
                 </div>
                 <div className="flex items-start justify-center text-gray-700">
                   <MapPin className="w-5 h-5 mr-2 text-rose-500 mt-1 flex-shrink-0" />
-                  <span>Chilkuri Laxmi Garden Mavala<br />Dist Adilabad, Telangana</span>
+                  <span>Tosham<br />Dist Adilabad, Telangana</span>
                 </div>
                 <div className="text-center mt-6">
                   <a
-                    href="https://maps.app.goo.gl/UjpVCGrNvemhermp8?g_st=aw"
+                    href="https://maps.app.goo.gl/y5wjupnkzRVLYNS4A"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-rose-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
